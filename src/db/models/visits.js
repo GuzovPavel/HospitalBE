@@ -8,12 +8,6 @@ const visitScheme = new Schema({
   doctorName: String,
   visitDate: String,
   complaint: String,
-  user: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "users._id" 
-    }
 });
-
-
 
 module.exports = Visit = mongoose.model("visits", visitScheme);

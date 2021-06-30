@@ -23,10 +23,7 @@ const createUser = async (req, res) => {
     const token = jwt.sign({ login }, secret);
 
     return res.json({
-      user: {
-        login: newUser.login,
-        id: newUser._id
-      },
+      user: newUser.login,
       token,
     });
   } catch (error) {
@@ -52,11 +49,8 @@ const loginUser = async (req, res) => {
     const token = jwt.sign({ login }, secret);
 
     return res.json({
-      user: {
-        login: user.login,
-        id: user._id
-      },
-      token,
+      user: user.login,
+      token
     });
   } catch (error) {
     return res.status(500).json({ error });

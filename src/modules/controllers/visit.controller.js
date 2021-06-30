@@ -15,7 +15,6 @@ const createNewVisit = async (req, res) => {
     const { patientName, doctorName, visitDate, complaint } = req.body;
 
     req.body.userId = req.user._id;
-    console.log(req.user._id);
     const visit = await Visit.create(req.body);
 
     return res.json({ visit });
@@ -26,9 +25,9 @@ const createNewVisit = async (req, res) => {
 
 const changeVisit = async (req, res) => {
   try {
-    const { _id, patientName, doctorName, visitDate, complaint } = req.body;
+    const { _id } = req.body;
 
-    const changingVisit = await Visit.updateOne({ _id }, req.body._id);
+    const changingVisit = await Visit.updateOne({ _id }, req.body);
 
     return res.json({ changingVisit: req.body });
   } catch {
